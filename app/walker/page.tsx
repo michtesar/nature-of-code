@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import { type Sketch } from "@p5-wrapper/react";
-import { NextReactP5Wrapper } from "@p5-wrapper/next";
-import Link from "next/link";
+import React from 'react';
+import { type Sketch } from '@p5-wrapper/react';
+import { NextReactP5Wrapper } from '@p5-wrapper/next';
+import Link from 'next/link';
 
 const sketch: Sketch = (p5) => {
   p5.setup = () => {
@@ -29,7 +29,8 @@ const sketch: Sketch = (p5) => {
 export default function Page() {
   return (
     <div className="relative min-h-screen">
-      <div className="absolute top-0 left-0 right-0 bg-gray-950 text-white p-4 flex justify-between items-center z-10 shadow-lg">
+      <div
+        className="absolute top-0 left-0 right-0 bg-gray-950 text-white p-4 flex justify-between items-center z-10 shadow-lg">
         <Link href="/" className="text-lg font-semibold hover:text-gray-400">
           Back
         </Link>

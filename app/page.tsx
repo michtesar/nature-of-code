@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 const sketches = [
-  { name: "Random Tree Walker", path: "/walker" },
+  { name: 'Random Tree Walker', path: '/walker' },
 ];
 
 const Home = () => {
