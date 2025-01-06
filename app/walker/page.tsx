@@ -18,8 +18,16 @@ const sketch: Sketch = (p5) => {
     }
 
     step() {
-      this.x += randomInterval(-1, 1);
-      this.y += randomInterval(-1, 1);
+      const choice = p5.random();
+      if (choice > 0.3) {
+        this.x += randomInterval(-1, 1);
+        this.y += randomInterval(-1, 1);
+      } else {
+        const stepX = p5.random();
+        const stepY = p5.random();
+        this.x += p5.mouseX > p5.width / 2 ? stepX : -stepX;
+        this.y += p5.mouseY > p5.height / 2 ? stepY : -stepY;
+      }
     }
   }
 
