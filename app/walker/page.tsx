@@ -62,7 +62,7 @@ export default function Page() {
   return (
     <div className="relative min-h-screen">
       <div
-        className="absolute top-0 left-0 right-0 bg-gray-950 text-white p-4 flex justify-between items-center z-10 shadow-lg">
+        className="absolute top-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-between items-center z-10 shadow-lg">
         <Link href="/" className="text-lg font-semibold hover:text-gray-400">
           Back
         </Link>
