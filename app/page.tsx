@@ -1,41 +1,29 @@
 "use client";
 
-import React from "react";
-import { type Sketch } from "@p5-wrapper/react";
-import { NextReactP5Wrapper } from "@p5-wrapper/next";
 import Link from "next/link";
 
-const sketch: Sketch = (p5) => {
-  p5.setup = () => {
-    p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
-  };
+const sketches = [
+  { name: "Random Tree Walker", path: "/walker" },
+];
 
-  p5.draw = () => {
-    p5.background(30); // Dark background
-    p5.normalMaterial();
-    p5.push();
-    p5.rotateZ(p5.frameCount * 0.01);
-    p5.rotateX(p5.frameCount * 0.01);
-    p5.rotateY(p5.frameCount * 0.01);
-    p5.plane(100);
-    p5.pop();
-  };
-
-  p5.windowResized = () => {
-    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
-  };
-};
-
-export default function Page() {
+const Home = () => {
   return (
-    <div className="relative min-h-screen">
-      <div className="absolute top-0 left-0 right-0 bg-gray-950 text-white p-4 flex justify-between items-center z-10 shadow-lg">
-        <Link href="/" className="text-lg font-semibold hover:text-gray-400">
-          Back
-        </Link>
-        <span className="text-lg font-semibold">Random Tree Walker</span>
-      </div>
-      <NextReactP5Wrapper sketch={sketch} />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <h1 className="text-4xl font-extrabold text-gray-100 mb-8">Nature of Code</h1>
+      <ul className="space-y-4">
+        {sketches.map((sketch) => (
+          <li key={sketch.name}>
+            <Link
+              href={sketch.path}
+              className="block w-64 text-center py-2 px-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-500 transition-all"
+            >
+              {sketch.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default Home;
