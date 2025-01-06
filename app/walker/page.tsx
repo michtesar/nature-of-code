@@ -19,6 +19,13 @@ const sketch: Sketch = (p5) => {
 
     step() {
       const choice = p5.random();
+      // For the touch screens move randomly
+      if (p5.mouseX === 0 && p5.mouseY === 0) {
+        this.x += randomInterval(-1, 1);
+        this.y += randomInterval(-1, 1);
+      }
+      // Move randomly in 30% of cases, else lean
+      // towards the mouse cursor quadrant
       if (choice > 0.3) {
         this.x += randomInterval(-1, 1);
         this.y += randomInterval(-1, 1);
