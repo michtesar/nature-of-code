@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const sketches = [
   { name: 'Random Tree Walker', path: '/walker' },
+  { name: 'Gaussian Distribution', path: '/gaussian' },
 ];
 
 const Home = () => {
