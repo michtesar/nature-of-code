@@ -6,19 +6,51 @@ import { NextReactP5Wrapper } from '@p5-wrapper/next';
 import Link from 'next/link';
 
 const sketch: Sketch = (p5) => {
+
+  class Walker {
+    x: number;
+    y: number;
+
+    constructor(width: number, height: number) {
+      this.x = width / 4;
+      this.y = height / 4;
+    }
+
+    show() {
+      p5.stroke(230);
+      p5.point(this.x, this.y);
+    }
+
+    step() {
+      const choice = Math.floor(Math.random() * 4);
+      switch (choice) {
+        case 0:
+          this.x++;
+          break;
+        case 1:
+          this.x--;
+          break;
+        case 2:
+          this.y++;
+          break;
+        case 3:
+          this.y--;
+          break;
+      }
+    }
+  }
+
+  let walker: Walker;
+
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
+    p5.background(30);
+    walker = new Walker(p5.windowWidth, p5.windowHeight);
   };
 
   p5.draw = () => {
-    p5.background(30); // Dark background
-    p5.normalMaterial();
-    p5.push();
-    p5.rotateZ(p5.frameCount * 0.01);
-    p5.rotateX(p5.frameCount * 0.01);
-    p5.rotateY(p5.frameCount * 0.01);
-    p5.plane(100);
-    p5.pop();
+    walker.step();
+    walker.show();
   };
 
   p5.windowResized = () => {
