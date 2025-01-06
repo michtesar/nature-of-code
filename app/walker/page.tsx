@@ -8,13 +8,8 @@ import Link from 'next/link';
 const sketch: Sketch = (p5) => {
 
   class Walker {
-    x: number;
-    y: number;
-
-    constructor(width: number, height: number) {
-      this.x = width / 4;
-      this.y = height / 4;
-    }
+    x: number = 0;
+    y: number = 0;
 
     show() {
       p5.stroke(230);
@@ -45,7 +40,7 @@ const sketch: Sketch = (p5) => {
   p5.setup = () => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
     p5.background(30);
-    walker = new Walker(p5.windowWidth, p5.windowHeight);
+    walker = new Walker();
   };
 
   p5.draw = () => {
