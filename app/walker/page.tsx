@@ -4,6 +4,7 @@ import React from 'react';
 import { type Sketch } from '@p5-wrapper/react';
 import { NextReactP5Wrapper } from '@p5-wrapper/next';
 import Link from 'next/link';
+import { randomInterval } from '@/app/lib';
 
 const sketch: Sketch = (p5) => {
 
@@ -17,21 +18,8 @@ const sketch: Sketch = (p5) => {
     }
 
     step() {
-      const choice = Math.floor(Math.random() * 4);
-      switch (choice) {
-        case 0:
-          this.x++;
-          break;
-        case 1:
-          this.x--;
-          break;
-        case 2:
-          this.y++;
-          break;
-        case 3:
-          this.y--;
-          break;
-      }
+      this.x += randomInterval(-1, 1);
+      this.y += randomInterval(-1, 1);
     }
   }
 
